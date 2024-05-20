@@ -53,5 +53,5 @@ def recomendar_habitacion(num_personas, presupuesto, dias_hospedaje):
     entrada = np.array([[num_personas, presupuesto, dias_hospedaje]])
     prediccion = model.predict(entrada)
     print('Predicción:', prediccion)
-    tipo_habitacion = 'suite' if prediccion >= 0.5 else 'estandar'
+    tipo_habitacion = 'Nuestra recomendación para tu hospedaje es una habitación suite.' if prediccion >= 0.5 else 'Nuestra recomendación para tu hospedaje es una habitación estandar.'
     return tipo_habitacion

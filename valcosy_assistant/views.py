@@ -6,11 +6,6 @@ from .src.rutas.rutas import encontrar_ruta
 from .src.habitaciones.habitaciones import recomendar_habitacion
 from .src.gustos.gustos import run_preferences
 
-class ValcosyAssistantOntology(APIView):
-    def get(self, request):
-        response = habitaciones_disponibles(date(2023, 5, 15), date(2023, 5, 18))
-        return Response({'result': response})
-
 class ValcosyAssistantRouter(APIView):
     def get(self, request):
         params = request.query_params
@@ -20,6 +15,12 @@ class ValcosyAssistantRouter(APIView):
         response = encontrar_ruta(final_node, climate, hour)
         return Response({'result': response})
     
+    
+class ValcosyAssistantOntology(APIView):
+    def get(self, request):
+        response = habitaciones_disponibles(date(2023, 5, 15), date(2023, 5, 18))
+        return Response({'result': response})
+
 class ValcosyAssistantRecomendator(APIView):
     def get(self, request):
         response = recomendar_habitacion(1, 200, 1)

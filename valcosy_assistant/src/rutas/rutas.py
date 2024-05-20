@@ -198,11 +198,10 @@ def encontrar_ruta(final_node: int, climate: str, hour: str):
     final_node = nodes[final_node]
     probabilities = model.predict_probability(condiciones)
     path = a_star_search(nodes[0], final_node, probabilities)
-    print(f'\nLa ruta óptima para llegar a {final_node.name} es la siguiente: \n')
     final_route = []
     counter = 1
     for i in range(len(path)):
         if(path[i].name != ''):
-            final_route.append(f'{counter}. {path[i].name}\n{path[i].address}\n{path[i].tags}\n---------------------------------------------------\n')
+            final_route.append(f'{counter}. {path[i].name}   {path[i].address}   {path[i].tags}')
             counter += 1
     return final_route
